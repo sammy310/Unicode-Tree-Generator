@@ -15,7 +15,7 @@ namespace fs = std::experimental::filesystem;
 HINSTANCE g_hInst;
 HWND g_hWnd;
 LPCWSTR lpszClass = TEXT("Tree");
-LPCWSTR lpszMenuName = TEXT("Tree 생성기");
+LPCWSTR lpszMenuName = TEXT("Unicode Tree Generator");
 int windowWidth = 500;
 int windowHeight = 300;
 
@@ -88,13 +88,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	switch (iMessage) {
 	case WM_CREATE:
 		g_hEditTree = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | ES_READONLY, windowWidth / 2 - 90, 50, 300, 30, hWnd, (HMENU)ID_EDIT_TREE, g_hInst, NULL);
-		CreateWindow(TEXT("static"), TEXT("트리를 추출할 경로 :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 50, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
+		CreateWindow(TEXT("static"), TEXT("Extract Tree Path :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 50, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
 		g_hEditSave = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | ES_READONLY, windowWidth / 2 - 90, 90, 300, 30, hWnd, (HMENU)ID_EDIT_SAVE, g_hInst, NULL);
-		CreateWindow(TEXT("static"), TEXT("트리를 저장할 경로 :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 90, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
+		CreateWindow(TEXT("static"), TEXT("Save File Path :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 90, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
 		g_hEditSaveFile = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, windowWidth / 2 - 90, 130, 300, 30, hWnd, (HMENU)ID_EDIT_SAVEFILE, g_hInst, NULL);
-		CreateWindow(TEXT("static"), TEXT("파일 이름 :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 130, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
-		CreateWindow(TEXT("button"), TEXT("생성"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, windowWidth / 2 - 100, windowHeight - 110, 80, 30, hWnd, (HMENU)ID_GETTREEBUTTON, g_hInst, NULL);
-		CreateWindow(TEXT("button"), TEXT("종료"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, windowWidth / 2 + 20, windowHeight - 110, 80, 30, hWnd, (HMENU)ID_EXITBUTTON, g_hInst, NULL);
+		CreateWindow(TEXT("static"), TEXT("File Name :"), WS_CHILD | WS_VISIBLE | SS_CENTER | SS_LEFT, windowWidth / 2 - 250, 130, 150, 30, hWnd, (HMENU)-1, g_hInst, NULL);
+		CreateWindow(TEXT("button"), TEXT("Generate"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, windowWidth / 2 - 100, windowHeight - 110, 80, 30, hWnd, (HMENU)ID_GETTREEBUTTON, g_hInst, NULL);
+		CreateWindow(TEXT("button"), TEXT("Exit"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, windowWidth / 2 + 20, windowHeight - 110, 80, 30, hWnd, (HMENU)ID_EXITBUTTON, g_hInst, NULL);
 		return 0;
 
 	case WM_COMMAND:
@@ -127,7 +127,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		case ID_GETTREEBUTTON:
 			if (CreateTree(treePath, savePath, saveFile) == TRUE)
-				MessageBox(hWnd, TEXT("생성 완료"), TEXT("!"), MB_OK);
+				MessageBox(hWnd, TEXT("Generate Complete!!"), TEXT("!"), MB_OK);
 			break;
 
 		case ID_EXITBUTTON:
@@ -166,7 +166,7 @@ BOOL GetDirectory(WCHAR *pathStr) {
 	memset(&bi, 0, sizeof(bi));
 	bi.hwndOwner = g_hWnd;
 	bi.pszDisplayName = nameStr;
-	bi.lpszTitle = TEXT("Tree");
+	bi.lpszTitle = TEXT("Path");
 	bi.ulFlags = BIF_VALIDATE | BIF_USENEWUI | BIF_NONEWFOLDERBUTTON | BIF_RETURNONLYFSDIRS;
 	bi.pidlRoot=
 
