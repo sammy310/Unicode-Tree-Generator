@@ -23,6 +23,64 @@ It is a program that creates a tree in a specific folder as a Unicode txt file
 ### 테스트 결과 (TEST Result)
 - [테스트 폴더 (Test Folders)](https://github.com/sammy310/Tree-Creater/tree/master/Tree%20Test)
 - [생성된 트리 (Generated Tree)](https://github.com/sammy310/Tree-Creater/blob/master/Tree_Result.txt)
+```
+Tree Test
+├─aaa
+│  │  file1.txt
+│  │  file2.txt
+│  │  file3.txt
+│  │  
+│  ├─DIr1
+│  │  │  file4.txt
+│  │  │  file5.txt
+│  │  │  
+│  │  └─Dir2
+│  │      │  file6.txt
+│  │      │  
+│  │      └─Dir3
+│  │              file7.txt
+│  │              
+│  └─Dir4
+├─English Test
+│  │  file1.txt
+│  │  file2.txt
+│  │  
+│  ├─Folder1
+│  │      file3.txt
+│  │      
+│  └─Folder2
+│          file4.txt
+│          
+├─中文测试
+│  │  文件.txt
+│  │  
+│  └─文件夹
+├─日本語テスト
+│  │  ファイル1.txt
+│  │  ファイル2.txt
+│  │  
+│  ├─フォルダ1
+│  │      ファイル3.txt
+│  │      
+│  └─フォルダ2
+│          ファイル4.txt
+│          
+└─한국어 테스트
+    │  파일1.txt
+    │  파일2.txt
+    │  
+    ├─폴더1
+    │  │  파일3.txt
+    │  │  파일4.txt
+    │  │  
+    │  ├─폴더3
+    │  │      파일5.txt
+    │  │      
+    │  └─폴더4
+    │          파일6.txt
+    │          
+    └─폴더2
+```
 
 ### Why???
 
